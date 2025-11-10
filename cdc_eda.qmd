@@ -1,0 +1,43 @@
+---
+title: "EDA Project"
+author: "Matthew Wilson"
+date: "2025-11-13"
+format:
+  html:
+    code-fold: true
+    toc: true
+---
+
+
+```{python}
+
+import requests
+import re
+from bs4 import BeautifulSoup
+import pandas as pd
+import numpy as np
+
+```
+
+
+```{python}
+
+url = 'https://data.cdc.gov/National-Center-for-Health-Statistics/AH-Deaths-by-Educational-Attainment-2019-2020/4ueh-89p9/data_preview'
+
+```
+
+
+
+```{python}
+
+r = requests.get(url)
+#r.status_code
+
+soup = BeautifulSoup(r.text)
+
+rows = soup.find_all('div', role_= "row")
+
+print(rows[0])
+print(rows[10])
+
+```
