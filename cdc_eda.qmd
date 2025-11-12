@@ -23,3 +23,14 @@ I knew it was ethical through two processes. First, the data was taken from a go
 First, I found the webpage that contained the data I wanted and obtained an api that I used to scrape data onto my computer as a json file using the library "requests". Then, I used the pandas library to convert the file into a dataframe. After that, I cleaned my data using regex to condense and clarify values, I dropped rows with unknown values, and I converted certain columns into numeric values so I could do arithmetic with them.
 After cleaning the data, I made a new dataset that I can use. This was done by condensing the dataset so that it contained the deaths for both 2019 and 2020 in the same row. I also determined the proportion of deaths (both total and covid) that occured for each age group while grouping by the demographic information. Finally, I also compared how the proportion of total deaths per age group in 2019 compared to the proportion of covid deaths per age group in 2020. This way, my 2019 data acts as a control when I analyze covid deaths.
 
+## EDA highlights: summary statistics, summary graphics, and/or information about final dataset (e.g., total sample size, counts of categorical variables, numerical summaries of numeric variables)
+
+
+## What are the most interesting findings of your EDA?
+
+
+## Links to find further information and /or resources
+[About the data](https://data.cdc.gov/National-Center-for-Health-Statistics/AH-Deaths-by-Educational-Attainment-2019-2020/4ueh-89p9/about_data)
+
+## A link to your code in a separate GitHub repo
+[My Repo for the process](https://github.com/Acodea23/eda_blog)
