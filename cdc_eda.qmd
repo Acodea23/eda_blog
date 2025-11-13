@@ -8,29 +8,66 @@ format:
     toc: true
 ---
 
-## Introduction / motivation of why this project is relevant and interesting
+### Introduction
 
 I find it very important to understand how the circumstances of someone's life impacts their health. I am in a human development class where we are learning about how the factors of our lives impact us, both the factors we can and can't control. In this dataset I have the chance to study how a person's race and sex, which they can't control, and a person's educational status, which they can somewhat control, change how likely they were to be killed by covid. Or to see if it in fact has no impact.
 
-## Motivating question (what are you hoping to learn from this data?)
+## Motivating question
 What impact do race, sex, education, and iteractions between the factors have on a person's chance of dying during the covid epidemic? Are any groups impacted by covid more than others in terms of a change in the proportion of deaths?
 
-## Information about how you determined that it was ethical / allowable to get the data that you gathered and/or how you implemented good scraping practice
+## How I know it's ethical
 I knew it was ethical through two processes. First, the data was taken from a government website that states that its purpose is to provide the public with data. The website also provided an API that would allow me to scrape the data. Second, I checked the robots.txt and determined the rules and regulations that were placed on scraping and followed them.
 
 
-## Summary of the steps needed to get your data with an emphasis on teaching other how they could get started with a similar project
+### How I gathered and prepared the data
 First, I found the webpage that contained the data I wanted and obtained an api that I used to scrape data onto my computer as a json file using the library "requests". Then, I used the pandas library to convert the file into a dataframe. After that, I cleaned my data using regex to condense and clarify values, I dropped rows with unknown values, and I converted certain columns into numeric values so I could do arithmetic with them.
 After cleaning the data, I made a new dataset that I can use. This was done by condensing the dataset so that it contained the deaths for both 2019 and 2020 in the same row. I also determined the proportion of deaths (both total and covid) that occured for each age group while grouping by the demographic information. Finally, I also compared how the proportion of total deaths per age group in 2019 compared to the proportion of covid deaths per age group in 2020. This way, my 2019 data acts as a control when I analyze covid deaths.
 
-## EDA highlights: summary statistics, summary graphics, and/or information about final dataset (e.g., total sample size, counts of categorical variables, numerical summaries of numeric variables)
+### EDA highlights:
 
+#### Some basic summary statitics for my numeric values.
+|       |   covid_19_deaths |   prop_dead_covid |   prop_dead_2019 |   prop_change |
+|:------|------------------:|------------------:|-----------------:|--------------:|
+| count |            214    |       214         |     214          | 214           |
+| mean  |           1743.07 |         0.168224  |       0.168224   |  -1.94548e-19 |
+| std   |           5754.05 |         0.172858  |       0.146603   |   0.0504982   |
+| min   |              0    |         0         |       0.00117369 |  -0.178868    |
+| 25%   |             33.5  |         0.0224849 |       0.0605526  |  -0.0295447   |
+| 50%   |            160    |         0.123526  |       0.137681   |  -0.0104656   |
+| 75%   |            907    |         0.253918  |       0.21127    |   0.0295659   |
+| max   |          59483    |         0.791629  |       0.72443    |   0.190199    |
+
+#### A look at the average proportional change for each age level for both education level and race.
+
+| race_or_hispanic_origin   |        0-24 |      25-39 |       40-54 |
+|:--------------------------|------------:|-----------:|------------:|
+| Am. Indian                | -0.0366441  | -0.037238  | -0.0118309  |
+| Asian                     | -0.0194403  | -0.0174561 | -0.0145093  |
+| Black                     | -0.0236276  | -0.0333654 | -0.0187769  |
+| Hispanic                  | -0.0316175  | -0.0369599 |  0.00701345 |
+| Multiracial               | -0.0683769  | -0.0645841 | -0.0378952  |
+| White                     | -0.00802079 | -0.0211336 | -0.0321271  |
+
+
+| education_level                  |        0-24 |      25-39 |      40-54 |
+|:---------------------------------|------------:|-----------:|-----------:|
+| Associate degree or some college | -0.0202627  | -0.0447806 | -0.0151646 |
+| Bachelor's degree or more        | -0.00436995 | -0.025146  | -0.019309  |
+| High school graduate/GED or less | -0.063852   | -0.0354419 | -0.0195895 |
+
+
+#### A deeper dive into the different proportional changes.
+#### Education
+![](edu_box.png "Boxplots of proportional changes in death rates by eduction")
+
+#### Race
+![](race_box.png "Boxplots of proportional changes in death rates by race")
 
 ## What are the most interesting findings of your EDA?
 
+What's most interesting to me is the lack of a clear difference in change in proportion of deaths for different education levels. I would have thought that those with less education were more susceptible to deaths from covid. Due to them having greater need to go work (less savings), and also jobs that are less likely to permit remote work. Both of these would have increased exposure to covid.
 
-## Links to find further information and /or resources
+## Links to find further information
 [About the data](https://data.cdc.gov/National-Center-for-Health-Statistics/AH-Deaths-by-Educational-Attainment-2019-2020/4ueh-89p9/about_data)
 
-## A link to your code in a separate GitHub repo
-[My Repo for the process](https://github.com/Acodea23/eda_blog)
+[My repo for the process](https://github.com/Acodea23/eda_blog)
